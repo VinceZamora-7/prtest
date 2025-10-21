@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fixed Size Background Image</title>
+    <style>
+      /* Fixed screen size */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1280px; /* Fixed width */
+        height: 720px; /* Fixed height */
+        overflow: hidden; /* Prevent scrolling */
+      }
+
+      /* Container fills the viewport */
+      body {
+        /* Replace the URL below with your image path or URL */
+        background-image: url("./mash.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; /* Cover entire screen, maintain aspect ratio */
+        background-attachment: fixed;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Optional content wrapper */
+      .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-align: center;
+        padding-top: 40vh; /* Vertically center text */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+        font-size: 2rem;
+      }
+      /* The button */
+      .floating-button {
+        position: fixed; /* Fixed relative to viewport */
+        top: 176px; /* Change top, left, right, bottom values to position */
+        left: 730px;
+
+        font-size: 0.7rem;
+        color: black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="https://vincezamora-7.github.io/PRFormEvents/"
+      class="floating-button"
+      onclick="openNewWindow(event, this.href)"
+      >PR Guide</a
+    >
+
+    <script>
+      function openNewWindow(event, url) {
+        event.preventDefault();
+        const width = 800;
+        const height = 600;
+        const left = window.screen.width / 2 - width / 2;
+        const top = window.screen.height / 2 - height / 2;
+        window.open(
+          url,
+          "newwindow",
+          `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`
+        );
+      }
+    </script>
+  </body>
+</html>
