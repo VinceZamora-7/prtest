@@ -18,10 +18,10 @@
       /* Container fills the viewport */
       body {
         /* Replace the URL below with your image path or URL */
-        background-image: url("./mash.png");
+        background-image: url("./mash2.png");
         background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover; /* Cover entire screen, maintain aspect ratio */
+        background-position: top center;
+        background-size: contain; /* Cover entire screen, maintain aspect ratio */
         background-attachment: fixed;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
@@ -39,13 +39,40 @@
       }
       /* The button */
       .floating-button {
-        position: fixed; /* Fixed relative to viewport */
-        top: 176px; /* Change top, left, right, bottom values to position */
-        left: 730px;
+        position: fixed; /* Fixed position relative to viewport */
+        top: 208px; /* Vertical placement - adjust as needed */
+        left: 105px; /* Horizontal placement - adjust as needed */
 
-        font-size: 0.7rem;
-        color: black;
+        padding: 3px 8px; /* Comfortable click/touch area */
+        font-size: 0.9rem; /* Slightly larger for readability */
+        font-weight: 600; /* Emphasize button text */
+        color: #fff; /* White text for contrast */
+        background-color: #0f6cbd; /* Pleasant blue background */
+        border: none;
+        border-radius: 8px; /* Rounded corners to soften edges */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+
         cursor: pointer;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
+
+        user-select: none; /* Prevent text selection on double click */
+      }
+
+      .floating-button:hover,
+      .floating-button:focus {
+        background-color: #1a6dcc; /* Darker blue on hover/focus */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+        outline: none; /* Remove default outline but keep focus visible in production */
+      }
+
+      /* Responsive tip: Use media query to adjust for smaller screens */
+      @media (max-width: 768px) {
+        .floating-button {
+          font-size: 0.8rem;
+          padding: 8px 14px;
+          top: 150px;
+          left: 20px;
+        }
       }
     </style>
   </head>
@@ -53,6 +80,7 @@
     <a
       href="https://vincezamora-7.github.io/PRFormEvents/"
       class="floating-button"
+      style="text-decoration: none"
       onclick="openNewWindow(event, this.href)"
       >PR Guide</a
     >
